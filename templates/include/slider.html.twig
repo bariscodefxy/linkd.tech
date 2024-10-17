@@ -1,0 +1,25 @@
+<div class="relative w-full h-screen overflow-hidden bg-black">
+    <div class="flex transition-transform duration-500 ease-in-out" id="slider">
+        <div class="w-full flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1588508065123-287b28e013da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Veri Merkezi" class="w-full h-screen object-cover opacity-50">
+        </div>
+        <div class="w-full flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Bilgisayar" class="w-full h-screen object-cover opacity-50">
+        </div>
+        <div class="w-full flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Teknoloji" class="w-full h-screen object-cover opacity-50">
+        </div>
+    </div>
+    <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-3 rounded-full text-2xl" onclick="slide(-1)">&#10094;</button>
+    <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 p-3 rounded-full text-2xl" onclick="slide(1)">&#10095;</button>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('#slider > div');
+
+    function slide(direction) {
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+</script>
